@@ -129,9 +129,13 @@ repeatString('Love', 5);
  *   'I like legends', 'end' => 'I like legs',
  *   'ABABAB','BA' => 'ABAB'
  */
-function removeFirstOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeFirstOccurrences(str, value) {
+  const firstOccurrence = str.indexOf(value);
+  return (
+    str.slice(0, firstOccurrence) + str.slice(firstOccurrence + value.length)
+  );
 }
+removeFirstOccurrences('To be or not to be', 'not');
 
 /**
  * Remove the first and last angle brackets from tag string
@@ -144,9 +148,10 @@ function removeFirstOccurrences(/* str, value */) {
  *   '<span>' => 'span'
  *   '<a>' => 'a'
  */
-function unbracketTag(/* str */) {
-  throw new Error('Not implemented');
+function unbracketTag(str) {
+  return str.slice(1, -1);
 }
+unbracketTag('<span>');
 
 /**
  * Converts all characters of the specified string into the upper case
