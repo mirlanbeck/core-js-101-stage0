@@ -241,9 +241,29 @@ console.log(getRectangleString(12, 4));
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(/* str */) {
-  throw new Error('Not implemented');
+function encodeToRot13(str) {
+  return str
+    .split('')
+    .map((ch) => {
+      const code = ch.charCodeAt(0);
+
+      // Заглавные буквы A-Z
+      if (code >= 65 && code <= 90) {
+        return String.fromCharCode(((code - 65 + 13) % 26) + 65);
+      }
+
+      // Строчные буквы a-z
+      if (code >= 97 && code <= 122) {
+        return String.fromCharCode(((code - 97 + 13) % 26) + 97);
+      }
+
+      // Всё остальное (пробелы, знаки) без изменений
+      return ch;
+    })
+    .join('');
 }
+console.log(encodeToRot13('hello'));
+console.log(encodeToRot13('Why did the chicken cross the road?'));
 
 /**
  * Returns true if the value is string; otherwise false.
