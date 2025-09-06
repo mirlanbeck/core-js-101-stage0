@@ -163,9 +163,10 @@ unbracketTag('<span>');
  *   'Thunderstruck' => 'THUNDERSTRUCK'
  *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
  */
-function convertToUpperCase(/* str */) {
-  throw new Error('Not implemented');
+function convertToUpperCase(str) {
+  return str.toUpperCase();
 }
+convertToUpperCase('anyTextToCapitalize');
 
 /**
  * Extracts e-mails from single string with e-mails list delimeted by semicolons
@@ -182,9 +183,12 @@ function convertToUpperCase(/* str */) {
  *   ],
  *   'info@gmail.com' => ['info@gmail.com']
  */
-function extractEmails(/* str */) {
-  throw new Error('Not implemented');
+function extractEmails(str) {
+  return str.split(';');
 }
+extractEmails(
+  'angus.young@gmail.com;brian.johnson@hotmail.com;bon.scott@yahoo.com'
+);
 
 /**
  * Returns the string representation of rectangle with specified width and height
@@ -209,9 +213,17 @@ function extractEmails(/* str */) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleString(width, height) {
+  const innerW = width - 2;
+  const innerH = height - 2;
+  const upper = `┌${'─'.repeat(innerW)}┐\n`;
+  const middle = `${`|${' '.repeat(innerW)}|\n`.repeat(innerH)}`;
+  const lower = `└${'─'.repeat(innerW)}┘\n`;
+  return upper + middle + lower;
 }
+console.log(getRectangleString(6, 4));
+console.log(getRectangleString(2, 2));
+console.log(getRectangleString(12, 4));
 
 /**
  * Encode specified string with ROT13 cipher
