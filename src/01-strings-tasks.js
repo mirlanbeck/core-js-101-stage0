@@ -221,9 +221,6 @@ function getRectangleString(width, height) {
   const lower = `└${'─'.repeat(innerW)}┘\n`;
   return upper + middle + lower;
 }
-console.log(getRectangleString(6, 4));
-console.log(getRectangleString(2, 2));
-console.log(getRectangleString(12, 4));
 
 /**
  * Encode specified string with ROT13 cipher
@@ -262,8 +259,6 @@ function encodeToRot13(str) {
     })
     .join('');
 }
-console.log(encodeToRot13('hello'));
-console.log(encodeToRot13('Why did the chicken cross the road?'));
 
 /**
  * Returns true if the value is string; otherwise false.
