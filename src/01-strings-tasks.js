@@ -301,8 +301,33 @@ function isString(value) {
  *   'Q♠' => 50
  *   'K♠' => 51
  */
-function getCardId(value) {}
+function getCardId(value) {
+  const ranks = [
+    'A',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '10',
+    'J',
+    'Q',
+    'K',
+  ];
+  const suits = ['♣', '♦', '♥', '♠'];
+  const suit = value.slice(-1); // последний символ = масть
+  const rank = value.slice(0, -1); // всё, кроме последнего = ранг
 
+  const rankIndex = ranks.indexOf(rank);
+  const suitIndex = suits.indexOf(suit);
+
+  return suitIndex * 13 + rankIndex;
+}
+
+/**/
 module.exports = {
   concatenateStrings,
   getStringLength,
